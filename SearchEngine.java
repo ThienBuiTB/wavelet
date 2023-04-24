@@ -7,7 +7,7 @@ public class SearchEngine {
     ArrayList<String> string = new ArrayList<>(null);
     public String handleRequest(URI url) {
         if (url.getPath().equals("/")) {
-            return String.format("Thien's Number: %d", num);
+            return String.format("Thien'sss Number: %d", num);
         } else if (url.getPath().equals("/increment")) {
             num += 1;
             return String.format("Number incremented!");
@@ -15,10 +15,12 @@ public class SearchEngine {
             System.out.println("Path: " + url.getPath());
             if (url.getPath().contains("/add")) {
                 String[] parameters = url.getQuery().split("=");
+                System.out.println(parameters[0]+"hi");
                 if (parameters[0].equals("count")) {
                     num += Integer.parseInt(parameters[1]);
-                    return String.format("Number increased by %s! It's now %d", parameters[1], num);
-                } else if(parameters[0].equals("message?s")){
+                    return String.format("Number increased by %s! It's now %d", parameters[0], num);
+                } else if(parameters[0].equals("message")){
+                    
                     string.add(parameters[1]);
                     for(int i = 0; i<string.size();i++){
                         System.out.println(string.get(i)+"\n");
